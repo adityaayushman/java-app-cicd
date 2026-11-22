@@ -98,7 +98,7 @@ Dockerfile               multi-stage build, non-root runtime
 
 - **Records live in memory.** They are lost on restart, and the manifest runs a single replica because a second one would hold different data. Adding a database or other shared store is the next step before scaling out.
 - **No authentication.** Anyone who can reach the service can read and write. Put it behind your own gateway or network policy.
-- **Not yet deployed.** The manifests are schema-validated in CI but I have not applied them to a live cluster, and the publish stage has not yet run because it only runs on `main`.
+- **Not deployed to a cluster.** The manifests are schema-validated in CI, and the image is built, scanned and published to GitHub Container Registry on every push to `main`, but I have not applied the manifests to a live cluster.
 
 ## License
 
