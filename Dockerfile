@@ -8,7 +8,7 @@ COPY src ./src
 RUN mvn -B -ntp -q -DskipTests package
 
 # ---- runtime stage: JRE only, non-root ----
-FROM eclipse-temurin:21-jre-alpine
+FROM eclipse-temurin:24-jre-alpine
 RUN addgroup -S -g 10001 ledger && adduser -S -u 10001 -G ledger ledger
 WORKDIR /app
 COPY --from=build /src/target/deployment-ledger.jar app.jar
