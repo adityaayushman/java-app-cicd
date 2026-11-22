@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - deployment.yaml
+  - service.yaml
+
+# Pin the image to the tag the pipeline published instead of "latest":
+#   kustomize edit set image ghcr.io/adityaayushman/java-app-cicd=ghcr.io/adityaayushman/java-app-cicd:<sha>
+images:
+  - name: ghcr.io/adityaayushman/java-app-cicd
+    newTag: latest
