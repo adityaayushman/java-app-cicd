@@ -94,7 +94,8 @@ jobs:
         run: docker logs ledger || true
 
       - name: Scan the image for known vulnerabilities
-        uses: aquasecurity/trivy-action@0.28.0
+        # Pinned to a commit: a third-party action should not be a mutable tag. Dependabot updates it.
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           image-ref: ledger:ci
           severity: CRITICAL,HIGH
