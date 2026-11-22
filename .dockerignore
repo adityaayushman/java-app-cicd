@@ -1,0 +1,10 @@
+.git
+.github
+.idea
+.vscode
+target
+out
+k8s
+*.md
+Dockerfile
+.dockerignore
